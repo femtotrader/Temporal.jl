@@ -7,7 +7,7 @@ CurrentModule = Temporal
 ## Topics
 
 ```@contents
-Pages = ["ts.md", "operations.md", "indexing.md", "combining.md", "aggregation.md", "io.md", "utils.md"]
+Pages = ["ts.md", "operations.md", "indexing.md", "combining.md", "aggregation.md", "io.md", "tables.md", "utils.md"]
 Depth = 3
 ```
 

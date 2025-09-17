@@ -10,6 +10,7 @@ Inspired by the pandas DataFrame in python and the xts package in R.
 """
 module Temporal
     using Dates
+    using Tables
 
     export
         # foundational
@@ -48,6 +49,7 @@ module Temporal
     include("util/convert.jl")
     include("util/show.jl")
     include("util/viz.jl")
+    include("util/tables.jl")
     include("feed/utils.jl")
     include("feed/yahoo.jl")
     include("feed/google.jl")

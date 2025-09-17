@@ -12,7 +12,8 @@ makedocs(modules=[Temporal],
                                    "Aggregation" => "aggregation.md"],
                 "Data" => ["I/O" => "io.md",
                            "Subsetting" => "indexing.md",
-                           "Combining" => "combining.md"]])
+                           "Combining" => "combining.md",
+                           "Tables.jl Integration" => "tables.md"]])
 
 deploydocs(deps=Deps.pip("mkdocs", "python-markdown-math"),
            repo="github.com/dysonance/Temporal.jl.git",

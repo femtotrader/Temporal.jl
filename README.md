@@ -9,6 +9,32 @@ This package provides a flexible & efficient time series class, `TS`, for the [J
 
 [See the documentation](http://dysonance.github.io/Temporal.jl/latest/) for a more in-depth look at the package and some of the pain points it may solve when doing technical research with time series data.
 
+## Tables.jl Integration
+
+Temporal.jl implements the [Tables.jl](https://github.com/JuliaData/Tables.jl) interface, making `TS` objects compatible with the broader Julia data ecosystem. This allows seamless integration with packages like DataFrames.jl, CSV.jl, and other Tables.jl-compatible packages.
+
+```julia
+using Temporal, Tables
+
+# Create a time series
+ts = TS([1.0 2.0; 3.0 4.0; 5.0 6.0], [Date(2020,1,1), Date(2020,1,2), Date(2020,1,3)], [:A, :B])
+
+# Access columns via Tables.jl interface
+Tables.columns(ts)  # Returns a NamedTuple with :index, :A, and :B
+
+# Iterate over rows
+for row in Tables.rows(ts)
+    println("$(row.index): A=$(row.A), B=$(row.B)")
+end
+
+# Convert to other Tables.jl compatible formats
+Tables.columntable(ts)  # Convert to column table format
+```
+
+The integration supports both row and column access patterns, provides proper schema information, and handles empty time series gracefully.
+
+## Usage Examples
+
 Below is a brief teaser with a minimal use case illustrating a small subset of features. This example also makes use of the [Indicators.jl](https://github.com/dysonance/Indicators.jl) package, which provides a series of financial market technical analysis indicators with wrappers for the `Temporal.TS` type. Visualization is offered through the [Plots.jl](http://docs.juliaplots.org/latest/) package, which Temporal leverages through [RecipesBase.jl](https://github.com/JuliaPlots/RecipesBase.jl).
 
 ```julia

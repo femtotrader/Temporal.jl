@@ -20,6 +20,7 @@ test_scripts = [
     "collapse.jl",
     "conversion.jl",
     "data.jl",
+    "tables.jl",
 ]
 
 for test_script in test_scripts
